@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback } from "react";
 import { debounce } from "lodash";
 import { DEFAULT_GITHUB_USERNAME } from "@/constants/api";
 import { SearchIcon } from "@/components/icons/search";
@@ -8,25 +8,24 @@ type SearchFormProps = {
 };
 
 const SearchForm = ({ onSubmit }: SearchFormProps) => {
-  const [username, setUsername] = useState(DEFAULT_GITHUB_USERNAME);
-
-  const debouncedSubmit = debounce((username: string) => {
-    onSubmit(username);
-  }, 300);
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setUsername(value);
-    debouncedSubmit(value);
+    onSubmit(value);
   };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const optimizedHandleSearchInputChange = useCallback(
+    debounce(handleInputChange, 500),
+    []
+  );
 
   return (
     <div className="search-container">
       <SearchIcon />
       <input
         type="text"
-        value={username}
-        onChange={handleInputChange}
+        defaultValue={DEFAULT_GITHUB_USERNAME}
+        onChange={optimizedHandleSearchInputChange}
         placeholder="Find a repository..."
       />
     </div>

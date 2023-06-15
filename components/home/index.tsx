@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import FilterButtons from "components/home/filterButtons";
 import SearchForm from "components/home/searchForm";
 import { SimpleRepo, RepoFilters } from "types/repo";
-import { ApiUrls } from "api/urls";
 import RepoList from "./repoList";
 import Layout from "./layout";
 import { fetchRepositories } from "api/fetchRepositories";
@@ -13,17 +12,26 @@ type HomePageProps = {
 
 export const HomePage = ({ initialRepos }: HomePageProps) => {
   const [repos, setRepos] = useState<SimpleRepo[]>(initialRepos);
+  const [error, setError] = useState<string | null>(null);
 
   const [activeFilter, setActiveFilter] = useState<RepoFilters>(
     RepoFilters.All
   );
 
   const fetchRepos = async (username: string) => {
+    if (!username?.length) {
+      setError(null);
+      setRepos([]);
+      return;
+    }
+
     try {
       const response = await fetchRepositories(username);
       setRepos(response);
-    } catch (error) {
-      console.error("Error fetching repositories:", error);
+      setError(null); // Clear any previous errors
+    } catch (error: any) {
+      setRepos([]);
+      setError(error?.message); // Set the error message
     }
   };
 
@@ -55,7 +63,11 @@ export const HomePage = ({ initialRepos }: HomePageProps) => {
 
           <SearchForm onSubmit={fetchRepos} />
 
-          <RepoList repos={filteredRepos} />
+          {error ? (
+            <div className="error-message">{error}</div>
+          ) : (
+            <RepoList repos={filteredRepos} />
+          )}
         </div>
       </div>
     </Layout>

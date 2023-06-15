@@ -1,6 +1,6 @@
-export const getLastUpdateTime = (pushedAt: string): string => {
+export const getLastUpdateTime = (updatedAt: string): string => {
   const currentTime = new Date();
-  const lastUpdate = new Date(pushedAt);
+  const lastUpdate = new Date(updatedAt);
   const timeDiff = Math.abs(currentTime.getTime() - lastUpdate.getTime());
   const minutesDiff = Math.floor(timeDiff / (1000 * 60));
 

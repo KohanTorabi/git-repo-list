@@ -1,5 +1,6 @@
 import { SimpleRepo } from "types";
 import RepoCard from "../repoCard";
+import React from "react";
 
 type RepoListProps = {
   repos: SimpleRepo[];
@@ -22,4 +23,4 @@ const RepoList = ({ repos }: RepoListProps) => {
   );
 };
 
-export default RepoList;
+export default React.memo(RepoList);

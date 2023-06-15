@@ -42,4 +42,4 @@ const RepoCard = ({ repo }: RepoCardProps) => {
   );
 };
 
-export default RepoCard;
+export default React.memo(RepoCard);

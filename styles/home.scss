@@ -51,6 +51,10 @@
         border-radius: 24px;
         margin-right: 8px;
         cursor: pointer;
+        &:hover {
+          border: 1px solid #0099ff;
+          color: #0099ff;
+        }
 
         &.active {
           background: rgba(255, 79, 102, 0.1);
@@ -74,6 +78,7 @@
       font-weight: 500;
       line-height: 20px;
       color: #545454;
+      width: 100%;
     }
     margin-bottom: 16px;
   }
@@ -152,6 +157,13 @@
       text-align: center;
       color: #b0b0b0;
     }
+  }
+  .error-message {
+    color: #ff4f66;
+    font-weight: 700;
+    text-align: center;
+    padding: 32px;
+    font-size: 20px;
   }
   @media only screen and (min-width: 760px) {
     .repo-card {

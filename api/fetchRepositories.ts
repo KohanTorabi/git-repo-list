@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { Repo, SimpleRepo } from "../types";
 import { ApiUrls } from "./urls";
 
@@ -25,7 +25,10 @@ export const fetchRepositories = async (
     } else {
       throw new Error("Failed to fetch repositories");
     }
-  } catch (error) {
-    throw new Error("An error occurred while fetching repositories");
+  } catch (error: any) {
+    throw new Error(
+      error?.response?.data?.message ||
+        "An error occurred while fetching repositories"
+    );
   }
 };
