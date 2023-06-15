@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# GitHub Repository Viewer
 
-First, run the development server:
+This is a web application built with Next.js and TypeScript that allows users to search for GitHub repositories based on a specific GitHub user. The application fetches data from the GitHub API and displays repository information such as name, visibility, languages, last update time, stars, and forks.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Search for GitHub repositories by username
+- Filter repositories by visibility (public, private, all)
+- Display basic information for each repository
+- Show the last update time in a human-readable format
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone the repository:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   `
+   git clone https://github.com/KohanTorabi/git-repo-list.git` 
 
-## Learn More
+2.  Navigate to the project directory:
+        
+    `cd github-repo-viewer` 
+    
+3.  Install the dependencies:
+        
+    `npm install` 
+    
+4.  Start the development server:
+        
+    `npm run dev` 
+    
+5.  Open your web browser and visit [http://localhost:3000](http://localhost:3000/) to access the application.
+    
 
-To learn more about Next.js, take a look at the following resources:
+## Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The application does not require any additional configuration. The GitHub API calls are made on the server-side, and the necessary API endpoints are already defined in the code.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+-   `/components`: Contains the reusable React components used in the application.
+-   `/pages`: Contains the Next.js pages for the application's routes.
+-   `/styles`: Contains the SCSS files for styling the application.
+-   `/types`: Contains the TypeScript type definitions used in the application.
+-   `/utils`: Contains utility functions used in the application.
+-   `/constants`: Contains constant values used in the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   Next.js: React framework for server-side rendering and building web applications.
+-   TypeScript: Adds static typing to JavaScript for improved developer productivity and code quality.
+-   SCSS: Preprocessor for CSS that adds features such as variables, nesting, and mixins.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+Feel free to modify and customize the README according to your project's specific details and requirements.
+Let me know if there's anything else I can help you with!
