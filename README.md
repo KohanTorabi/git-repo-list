@@ -54,5 +54,3 @@ The application does not require any additional configuration. The GitHub API ca
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-Feel free to modify and customize the README according to your project's specific details and requirements.
-Let me know if there's anything else I can help you with!
