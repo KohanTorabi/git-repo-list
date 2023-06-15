@@ -19,7 +19,7 @@ This is a web application built with Next.js and TypeScript that allows users to
 
 2.  Navigate to the project directory:
         
-    `cd github-repo-viewer` 
+    `cd git-repo-list` 
     
 3.  Install the dependencies:
         
